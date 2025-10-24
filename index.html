@@ -1,136 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website of Amous (Ziyu) Qiu">
-    <title>Amous (Ziyu) Qiu</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Amous (Ziyu) Qiu" />
+  <title>Amous (Ziyu) Qiu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Amous (Ziyu) Qiu</h1>
-        <p>Dartmouth, NS</p>
-        <p>
-            <a href="mailto:AmousQiu@dal.ca">AmousQiu@dal.ca</a> |
-            <a href="tel:+19029895420">902-989-5420</a> |
-            <a href="https://FamousAmous.com/">FamousAmous.com</a>
-        </p>
-    </header>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Amous (Ziyu) Qiu</h1>
+      <p class="subtitle">Senior Data & AI Algorithm Lead · Researcher · Developer</p>
+      <div class="contact">
+        <a href="mailto:AmousQiu@dal.ca">AmousQiu@dal.ca</a> ·
+        <a href="tel:+19029895420">902-989-5420</a> ·
+        <a href="https://FamousAmous.com/">FamousAmous.com</a>
+      </div>
+      <a href="AmousQiu_CV.pdf" class="btn">📄 Download CV</a>
+    </div>
+    <nav class="navbar">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Engagements</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <main>
-        <section>
-            <h2>Education</h2>
-            <div class="entry">
-                <h3>Dalhousie University — PhD, Computer Science</h3>
-                <span>Jan 2023 – Present</span>
-                <ul><li>Genetic Programming, Data Stream, Incremental Online Machine Learning</li></ul>
-            </div>
-            <div class="entry">
-                <h3>Dalhousie University — Master of Computer Science</h3>
-                <span>Sept 2021 – Jan 2023</span>
-                <ul><li>Anomaly detection using unsupervised learning on network data</li></ul>
-            </div>
-            <div class="entry">
-                <h3>Dalhousie University — Bachelor of Computer Science</h3>
-                <span>Jan 2018 – Apr 2021</span>
-                <ul>
-                    <li>Dean’s List, Sexton Scholar</li>
-                    <li>Certificate in Artificial Intelligence and Intelligent Systems</li>
-                </ul>
-            </div>
-        </section>
+  <main>
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p>
+        I’m a PhD candidate in Computer Science at Dalhousie University, focusing on <b>genetic programming</b>,
+        <b>streaming data</b>, and <b>incremental online learning</b>. I lead AI and data projects at DeepSense,
+        mentoring teams and collaborating with industry partners on advanced ML solutions.
+      </p>
+    </section>
 
-        <section>
-            <h2>Experience</h2>
-            <div class="entry">
-                <h3>Senior Data & AI Algorithm Lead — DeepSense</h3>
-                <span>Sep 2022 – Present, Halifax, NS</span>
-                <ul>
-                    <li>Lead and mentor interns, provide technical guidance.</li>
-                    <li>Collaborate with program manager on project management.</li>
-                    <li>Design, develop, and report on ML and data projects.</li>
-                    <li>Create reusable materials for labeling and ML workflows.</li>
-                </ul>
-            </div>
+    <section id="experience" class="card">
+      <h2>Experience</h2>
+      <div class="item">
+        <h3>Senior Data & AI Algorithm Lead · DeepSense</h3>
+        <span>2022 – Present · Halifax, NS</span>
+        <ul>
+          <li>Lead AI research and mentor project interns.</li>
+          <li>Design and develop scalable ML solutions for ocean data applications.</li>
+          <li>Bridge academia and industry through applied AI initiatives.</li>
+        </ul>
+      </div>
 
-            <div class="entry">
-                <h3>Teaching Assistant — Dalhousie University</h3>
-                <span>Apr 2021 – Present</span>
-                <ul>
-                    <li>CSCI 2122, CSCI 4121: Systems Programming, Advanced Computer Architecture.</li>
-                    <li>Developed automated marking pipelines in Python.</li>
-                    <li>Held office hours and delivered guest lectures.</li>
-                </ul>
-            </div>
+      <div class="item">
+        <h3>Teaching Assistant · Dalhousie University</h3>
+        <span>2021 – Present</span>
+        <ul>
+          <li>Courses: CSCI 2122, CSCI 4121.</li>
+          <li>Developed automated grading pipelines using Python.</li>
+          <li>Supported students and delivered guest lectures.</li>
+        </ul>
+      </div>
 
-            <div class="entry">
-                <h3>Research Assistant — Tecorigin</h3>
-                <span>Jun 2021 – Oct 2021</span>
-                <ul><li>Worked on deep learning with TensorFlow and PyTorch.</li></ul>
-            </div>
+      <div class="item">
+        <h3>App Developer · immediaC</h3>
+        <span>2020 – 2021</span>
+        <ul>
+          <li>Full-stack development with .NET, C#, SQL, JS.</li>
+          <li>iOS app development using Swift and SwiftUI.</li>
+          <li>Client-facing collaboration on multiple web projects.</li>
+        </ul>
+      </div>
+    </section>
 
-            <div class="entry">
-                <h3>App Developer — immediaC</h3>
-                <span>Jan 2020 – Jan 2021</span>
-                <ul>
-                    <li>Web dev with .NET, C#, SQL, JS, and LINQ.</li>
-                    <li>iOS development with Swift and SwiftUI.</li>
-                    <li>Client communication and requirement gathering.</li>
-                </ul>
-            </div>
+    <section id="publications" class="card">
+      <h2>Publications</h2>
+      <ul>
+        <li><b>Small Nimble LGP Populations for Non-stationary Streaming Classification Tasks</b> — Linear Genetic Programming, 2025.</li>
+        <li><b>Benchmarking Streaming Evolutionary Ensemble Learning under Shifting Imbalanced Data</b> — IEEE CEC, 2025.</li>
+        <li><b>Assessing the impact of bag-of-words vs word-to-vector embeddings</b> — IJNM, 2024.</li>
+      </ul>
+    </section>
 
-            <div class="entry">
-                <h3>Junior Programmer — Ubisoft</h3>
-                <span>Apr 2019 – Aug 2019</span>
-                <ul>
-                    <li>Built multi-ending game maker in Unity.</li>
-                    <li>Configured AWS EC2 with Apache, MySQL, PHP.</li>
-                    <li>Developed asset management DB using MySQL and PHP.</li>
-                </ul>
-            </div>
-        </section>
+    <section id="projects" class="card">
+      <h2>Professional Engagements</h2>
+      <ul>
+        <li>Panel Talks — OCEANS 2024, ShiftKey Lounge, DeepSense Discovery Session</li>
+        <li>Committee — Canada’s Ocean Supercluster (AI Strategy, EOI Assessor)</li>
+        <li>Reviewer — IEEE Transactions on Evolutionary Computation</li>
+        <li>WiTS — Technical Coordinator</li>
+      </ul>
+    </section>
 
-        <section>
-            <h2>Publications</h2>
-            <ul>
-                <li><b>Small Nimble LGP Populations for Non-stationary Streaming Classification Tasks</b> (In Proceeding) — <i>Linear Genetic Programming, Springer</i>, Ziyu Qiu, M. Heywood*</li>
-                <li><b>Benchmarking Streaming Evolutionary Ensemble Learning under Shifting Imbalanced Data</b> — <i>IEEE CEC</i>, Ziyu Qiu, M. Heywood*</li>
-                <li><b>Defining and Benchmarking a Symmetric Kappa+ Prequential Error Metric...</b> — <i>IEEE SSCI</i>, Ziyu Qiu, M. Heywood*</li>
-                <li><b>Assessing the impact of bag-of-words vs word-to-vector...</b> — <i>IJNM</i>, Z. Qiu et al.</li>
-                <li><b>Bidirectional Multi-Stack RNNs with Attention for Machine Translation</b> — <i>IEEE ONCON</i>, Z. Qiu*</li>
-                <li><b>A boosting approach to constructing an ensemble stack</b> — <i>IJNM</i>, Z. Qiu et al.</li>
-            </ul>
-        </section>
+    <section id="skills" class="card">
+      <h2>Skills</h2>
+      <p><b>Languages:</b> Python, C++, C#, Java, SQL, JavaScript, MATLAB</p>
+      <p><b>Machine Learning:</b> TensorFlow, PyTorch, Scikit-learn, Keras, OpenCV</p>
+      <p><b>Cloud:</b> AWS, GCP, Docker</p>
+    </section>
 
-        <section>
-            <h2>Professional Engagements</h2>
-            <ul>
-                <li>Panel Talks: OCEANS 2024, ShiftKey Lounge, DeepSense Discovery Session</li>
-                <li>Committee: Canada's Ocean Supercluster AI Strategy Committee, AI Assessor</li>
-                <li>Peer Review: IEEE Transactions on Evolutionary Computation</li>
-                <li>Society: Dalhousie Women in Tech Society (WiTS) — Technical Coordinator</li>
-            </ul>
-        </section>
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>📍 Dartmouth, NS</p>
+      <p><a href="mailto:AmousQiu@dal.ca">AmousQiu@dal.ca</a></p>
+      <p><a href="https://FamousAmous.com/">FamousAmous.com</a></p>
+    </section>
+  </main>
 
-        <section>
-            <h2>Competitions</h2>
-            <ul>
-                <li>CyberSci (2023–2024): <a href="https://www.dal.ca/faculty/computerscience/news-events/news/2023/01/11/dal_computer_science_students_hack_their_way_to_national_competition.html#contentPar_newsArticle">Atlantic Regional Gold</a>, 
-                <a href="https://www.dal.ca/faculty/computerscience/news-events/news/2023/12/07/dal_computer_science_students_hack_their_way_to_national_competition.html">Atlantic Regional Silver</a></li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Technologies</h2>
-            <p><b>Programming:</b> C++, C, Java, C#, SQL, JavaScript, Python, MATLAB</p>
-            <p><b>Machine Learning:</b> TensorFlow, PyTorch, Keras, Scikit-learn, OpenCV</p>
-            <p><b>Cloud:</b> AWS, GCP, Docker</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>Last updated September 2024 — © 2025 Amous (Ziyu) Qiu</p>
-    </footer>
+  <footer>
+    <p>© 2025 Amous (Ziyu) Qiu — Last updated September 2024</p>
+  </footer>
 </body>
 </html>
