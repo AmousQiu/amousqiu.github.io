@@ -1,114 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Amous (Ziyu) Qiu" />
-  <title>Amous (Ziyu) Qiu</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amous (Ziyu) Qiu — Research Notes</title>
+  <meta name="description" content="Academic portfolio and research notes of Amous (Ziyu) Qiu">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Literata:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Amous (Ziyu) Qiu</h1>
-      <p class="subtitle">Senior Data & AI Algorithm Lead · Researcher · Developer</p>
-      <div class="contact">
-        <a href="mailto:AmousQiu@dal.ca">AmousQiu@dal.ca</a> ·
-        <a href="tel:+19029895420">902-989-5420</a> ·
-        <a href="https://FamousAmous.com/">FamousAmous.com</a>
-      </div>
-      <a href="AmousQiu_CV.pdf" class="btn">📄 Download CV</a>
+  <header>
+    <h1>Amous (Ziyu) Qiu</h1>
+    <p class="subtitle">PhD Candidate · Machine Learning · Data Streams · Genetic Programming</p>
+    <div class="contact">
+      <a href="mailto:AmousQiu@dal.ca">AmousQiu@dal.ca</a> ·
+      <a href="https://FamousAmous.com/">FamousAmous.com</a>
     </div>
-    <nav class="navbar">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#publications">Publications</a>
-      <a href="#projects">Engagements</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
 
   <main>
-    <section id="about" class="card">
+    <article id="about" class="zettel">
       <h2>About</h2>
       <p>
-        I’m a PhD candidate in Computer Science at Dalhousie University, focusing on <b>genetic programming</b>,
-        <b>streaming data</b>, and <b>incremental online learning</b>. I lead AI and data projects at DeepSense,
-        mentoring teams and collaborating with industry partners on advanced ML solutions.
+        I’m a researcher at Dalhousie University exploring <strong>genetic programming</strong> and 
+        <strong>incremental online learning</strong> for evolving data streams.  
+        I lead AI projects with <strong>DeepSense</strong>, focusing on bridging academic and applied ML for the ocean industry.  
       </p>
-    </section>
+      <p class="see-also">See also → <a href="#publications">Publications</a> · <a href="#experience">Experience</a></p>
+    </article>
 
-    <section id="experience" class="card">
+    <article id="education" class="zettel">
+      <h2>Education</h2>
+      <ul>
+        <li><b>PhD, Computer Science</b> — Dalhousie University (2023–Present)</li>
+        <li><b>MCS, Computer Science</b> — Dalhousie University (2021–2023)</li>
+        <li><b>BCS, Computer Science</b> — Dalhousie University (2018–2021)</li>
+      </ul>
+      <p class="see-also">See also → <a href="#publications">Research Output</a></p>
+    </article>
+
+    <article id="experience" class="zettel">
       <h2>Experience</h2>
-      <div class="item">
-        <h3>Senior Data & AI Algorithm Lead · DeepSense</h3>
-        <span>2022 – Present · Halifax, NS</span>
-        <ul>
-          <li>Lead AI research and mentor project interns.</li>
-          <li>Design and develop scalable ML solutions for ocean data applications.</li>
-          <li>Bridge academia and industry through applied AI initiatives.</li>
-        </ul>
-      </div>
+      <p><strong>Senior Data & AI Algorithm Lead</strong>, DeepSense — Halifax, NS (2022–Present)</p>
+      <ul>
+        <li>Lead AI projects and mentor interdisciplinary teams.</li>
+        <li>Develop data-driven ML frameworks for non-stationary environments.</li>
+      </ul>
 
-      <div class="item">
-        <h3>Teaching Assistant · Dalhousie University</h3>
-        <span>2021 – Present</span>
-        <ul>
-          <li>Courses: CSCI 2122, CSCI 4121.</li>
-          <li>Developed automated grading pipelines using Python.</li>
-          <li>Supported students and delivered guest lectures.</li>
-        </ul>
-      </div>
+      <p><strong>Teaching Assistant</strong>, Dalhousie University (2021–Present)</p>
+      <ul>
+        <li>Courses: Systems Programming, Advanced Computer Architecture.</li>
+        <li>Built automated grading and evaluation systems in Python.</li>
+      </ul>
 
-      <div class="item">
-        <h3>App Developer · immediaC</h3>
-        <span>2020 – 2021</span>
-        <ul>
-          <li>Full-stack development with .NET, C#, SQL, JS.</li>
-          <li>iOS app development using Swift and SwiftUI.</li>
-          <li>Client-facing collaboration on multiple web projects.</li>
-        </ul>
-      </div>
-    </section>
+      <p class="see-also">See also → <a href="#technologies">Tech Stack</a> · <a href="#publications">Applications in Research</a></p>
+    </article>
 
-    <section id="publications" class="card">
+    <article id="publications" class="zettel">
       <h2>Publications</h2>
       <ul>
         <li><b>Small Nimble LGP Populations for Non-stationary Streaming Classification Tasks</b> — Linear Genetic Programming, 2025.</li>
         <li><b>Benchmarking Streaming Evolutionary Ensemble Learning under Shifting Imbalanced Data</b> — IEEE CEC, 2025.</li>
-        <li><b>Assessing the impact of bag-of-words vs word-to-vector embeddings</b> — IJNM, 2024.</li>
+        <li><b>Symmetric Kappa+ Prequential Error Metric for Imbalanced Streaming Data</b> — IEEE SSCI, 2025.</li>
+        <li><b>Assessing the impact of BoW vs embeddings for anomaly detection</b> — IJNM, 2024.</li>
       </ul>
-    </section>
+      <p class="see-also">See also → <a href="#experience">Experience</a> · <a href="#education">Education</a></p>
+    </article>
 
-    <section id="projects" class="card">
+    <article id="engagements" class="zettel">
       <h2>Professional Engagements</h2>
       <ul>
-        <li>Panel Talks — OCEANS 2024, ShiftKey Lounge, DeepSense Discovery Session</li>
-        <li>Committee — Canada’s Ocean Supercluster (AI Strategy, EOI Assessor)</li>
+        <li>Panelist — OCEANS 2024, ShiftKey Lounge, DeepSense Discovery</li>
+        <li>Committee — Canada's Ocean Supercluster (AI Strategy)</li>
         <li>Reviewer — IEEE Transactions on Evolutionary Computation</li>
-        <li>WiTS — Technical Coordinator</li>
+        <li>Technical Coordinator — Dalhousie WiTS</li>
       </ul>
-    </section>
+      <p class="see-also">See also → <a href="#publications">Publications</a></p>
+    </article>
 
-    <section id="skills" class="card">
-      <h2>Skills</h2>
+    <article id="technologies" class="zettel">
+      <h2>Technologies</h2>
       <p><b>Languages:</b> Python, C++, C#, Java, SQL, JavaScript, MATLAB</p>
       <p><b>Machine Learning:</b> TensorFlow, PyTorch, Scikit-learn, Keras, OpenCV</p>
       <p><b>Cloud:</b> AWS, GCP, Docker</p>
-    </section>
+      <p class="see-also">See also → <a href="#experience">Experience</a></p>
+    </article>
 
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>📍 Dartmouth, NS</p>
-      <p><a href="mailto:AmousQiu@dal.ca">AmousQiu@dal.ca</a></p>
-      <p><a href="https://FamousAmous.com/">FamousAmous.com</a></p>
-    </section>
+    <article id="meta" class="zettel">
+      <h2>Site Meta</h2>
+      <p>This page is a lightweight digital garden built in a zettelkasten style — each section acts as a self-contained note, cross-linked to related ideas.</p>
+      <p>Last updated September 2024 · Hosted on <a href="https://github.com/FamousAmous">GitHub Pages</a></p>
+    </article>
   </main>
 
   <footer>
-    <p>© 2025 Amous (Ziyu) Qiu — Last updated September 2024</p>
+    <p>© 2025 Amous (Ziyu) Qiu — Academic Zettelkasten</p>
   </footer>
 </body>
 </html>
+s
