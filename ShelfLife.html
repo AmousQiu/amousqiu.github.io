@@ -47,11 +47,6 @@
             border-bottom: 2px solid #059669;
         }
 
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
         /* Tech Stack Step Animation */
         .step-node {
             transition: all 0.3s ease;
@@ -62,33 +57,47 @@
             border-color: #059669;
         }
 
-        /* CSS Logo Construction */
-        .logo-container {
+        /* --- NEW LOGO: Vertical Bookshelf (Data Spines) --- */
+        .logo-stack {
             display: flex;
-            align-items: flex-end;
-            gap: 2px;
-            height: 24px;
+            flex-direction: row; /* Row of vertical items */
+            gap: 4px; /* Space between spines */
+            align-items: flex-end; /* Align to the bottom like a shelf */
+            height: 32px; /* Container height */
         }
-        .logo-spine {
-            width: 4px;
+        .logo-line {
+            width: 6px; /* Fixed width for spines */
             background-color: #374151; /* Gray-700 */
-            border-radius: 1px;
+            border-radius: 4px; /* Rounded edges */
         }
-        .logo-spine.green {
+        .logo-line.green {
             background-color: #10B981; /* Emerald-500 */
-            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); /* Subtle glow */
+            position: relative;
+        }
+        /* The "Tick" / Data Verification Dot - Now at the top */
+        .logo-line.green::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.9;
         }
     </style>
     <!-- Chosen Palette: Warm Paper Background (#FDFBF7), Emerald Green Primary (#059669), Charcoal Text (#1F2937) -->
     <!-- Application Structure Plan:
-         1. Hero: Focus on the "Selector" concept.
+         1. Hero: Features the vertical "Bookshelf/Data Stack" logo concept.
          2. The Pain: "Browsing Fatigue" & "Data Silos" (4M books/year).
          3. The Solution: "Context" bridging the gap.
          4. Market: TAM/SAM/SOM visualization.
          5. Competition: Thrift (Manual) vs LLM (Generic) vs ShelfLife (Personal).
          6. Roadmap: Focus on Validation & Retail Pilots.
     -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. CSS shapes used for logo. -->
 </head>
 <body class="antialiased scroll-smooth">
 
@@ -96,16 +105,16 @@
     <nav class="sticky top-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <!-- CSS Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="logo-container">
-                        <div class="logo-spine" style="height: 18px;"></div>
-                        <div class="logo-spine" style="height: 22px;"></div>
-                        <div class="logo-spine" style="height: 20px;"></div>
-                        <div class="logo-spine green" style="height: 24px;"></div> <!-- The Selected Book -->
-                        <div class="logo-spine" style="height: 19px;"></div>
+                <!-- CSS Logo: The Vertical Code Bookshelf -->
+                <div class="flex items-center gap-3 group cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="logo-stack">
+                        <div class="logo-line h-4"></div>
+                        <div class="logo-line h-6"></div>
+                        <div class="logo-line h-8 green"></div> <!-- The Selected Data/Book -->
+                        <div class="logo-line h-5"></div>
+                        <div class="logo-line h-3"></div>
                     </div>
-                    <span class="text-2xl font-bold text-gray-800 font-serif tracking-tight">ShelfLife</span>
+                    <span class="text-2xl font-bold text-gray-800 font-serif tracking-tight group-hover:text-emerald-700 transition-colors">ShelfLife</span>
                 </div>
                 
                 <div class="hidden md:flex space-x-8 text-sm font-medium">
@@ -126,7 +135,7 @@
                 Don't judge a book <br>by its <span class="text-gray-400 line-through decoration-emerald-500 decoration-4">cover</span> <span class="text-emerald-600">data</span>.
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 font-serif italic">
-                "The signal-to-noise ratio in bookstores is broken. We fix it."
+                "Finding the signal in the noise of 4 million books."
             </p>
             <p class="max-w-3xl mx-auto text-gray-500">
                 Readers have years of history on Goodreads, but that data is invisible in a physical shop. ShelfLife bridges the <strong>Context Gap</strong>.
@@ -221,7 +230,7 @@
             <div class="mb-10 text-center">
                 <h2 class="text-3xl font-bold text-gray-900 font-serif">The Market Opportunity</h2>
                 <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-                    Contrary to the "print is dead" myth, the physical book market is stable and driven by digitally savvy users.
+                    Contrary to the "print is dead" myth, the physical book market is stable ($25B) and driven by digitally savvy users.
                 </p>
             </div>
 
@@ -229,12 +238,11 @@
                 <!-- Market Funnel Visualization -->
                 <div class="space-y-4">
                      <!-- TAM -->
-                    <div class="bg-gray-200 rounded-xl p-6 relative overflow-hidden">
+                    <div class="bg-gray-200 rounded-xl p-6 relative overflow-hidden border border-gray-300">
                         <div class="relative z-10">
                             <h3 class="text-xl font-bold text-gray-800">TAM: $25 Billion</h3>
                             <p class="text-sm text-gray-600">North American Book Market (78% is Print Format)</p>
                         </div>
-                        <div class="absolute right-0 top-0 h-full w-1/3 bg-gray-300 transform skew-x-12 opacity-20"></div>
                     </div>
                     
                     <!-- SAM -->
@@ -350,12 +358,13 @@
             </div>
             
             <div class="mt-16 text-center pt-8 border-t border-gray-800">
-                <!-- CSS Logo Small -->
-                <div class="flex justify-center items-end gap-1 h-6 mb-4 opacity-50">
-                    <div class="w-1 bg-gray-400 h-3 rounded-[1px]"></div>
-                    <div class="w-1 bg-gray-400 h-5 rounded-[1px]"></div>
-                    <div class="w-1 bg-emerald-500 h-6 rounded-[1px] shadow-[0_0_5px_#10B981]"></div>
-                    <div class="w-1 bg-gray-400 h-4 rounded-[1px]"></div>
+                <!-- CSS Logo Small: Vertical Stack -->
+                <div class="flex justify-center items-end gap-1 mb-4 opacity-50">
+                     <div class="w-1.5 h-4 bg-gray-400 rounded-sm"></div>
+                     <div class="w-1.5 h-6 bg-gray-400 rounded-sm"></div>
+                     <div class="w-1.5 h-8 bg-emerald-500 rounded-sm shadow-[0_0_5px_#10B981]"></div>
+                     <div class="w-1.5 h-5 bg-gray-400 rounded-sm"></div>
+                     <div class="w-1.5 h-3 bg-gray-400 rounded-sm"></div>
                 </div>
                 <p class="text-emerald-500 font-bold tracking-widest uppercase text-sm mb-2">ShelfLife</p>
                 <p class="text-gray-400 italic text-sm">"The right book, at the right time."</p>
@@ -369,7 +378,7 @@
         const techSteps = [
             {
                 title: "Input: Visual Scene Analysis",
-                desc: "We don't scan barcodes one by one. Our computer vision model analyzes the entire shelf at once, identifying text on spines (titles and authors) in milliseconds. This differentiates us from Goodreads' single-scan friction."
+                desc: "We don't scan barcodes one by one (too slow). Our computer vision model analyzes the entire shelf at once, identifying text on spines (titles and authors) in milliseconds. This differentiates us from Goodreads' single-scan friction."
             },
             {
                 title: "Context: The User Profile",
