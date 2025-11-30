@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShelfLife: Interactive Pitch Deck</title>
+    <title>ShelfLife: AI2Market Pitch</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -61,24 +61,34 @@
             color: white;
             border-color: #059669;
         }
+
+        /* CSS Logo Construction */
+        .logo-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 24px;
+        }
+        .logo-spine {
+            width: 4px;
+            background-color: #374151; /* Gray-700 */
+            border-radius: 1px;
+        }
+        .logo-spine.green {
+            background-color: #10B981; /* Emerald-500 */
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+        }
     </style>
-    <!-- Chosen Palette: Warm Paper Background (#FDFBF7), Emerald Green Primary (#059669), Charcoal Text (#1F2937), Gold Accent (#F59E0B) -->
-    <!-- Application Structure Plan: 
-         1. Hero Section: Immediate Hook & Value Prop ("The AR Librarian").
-         2. Problem & Solution Toggle: Interactive comparison of the current "broken" journey vs. ShelfLife's "magical" journey.
-         3. Tech Stack Deep Dive: Interactive stepper to explain the OCR -> LLM pipeline clearly.
-         4. Market & Competition Dashboard: Two charts side-by-side (Quadrant chart for competition, Line/Bar for market growth) to validate the business case.
-         5. Business Model Cards: Clear breakdown of revenue streams.
-         6. Roadmap & Ask: Timeline visualization of current status and future goals.
-         This structure moves from emotional hook -> logical solution -> technical proof -> business viability -> call to action. 
+    <!-- Chosen Palette: Warm Paper Background (#FDFBF7), Emerald Green Primary (#059669), Charcoal Text (#1F2937) -->
+    <!-- Application Structure Plan:
+         1. Hero: Focus on the "Selector" concept.
+         2. The Pain: "Browsing Fatigue" & "Data Silos" (4M books/year).
+         3. The Solution: "Context" bridging the gap.
+         4. Market: TAM/SAM/SOM visualization.
+         5. Competition: Thrift (Manual) vs LLM (Generic) vs ShelfLife (Personal).
+         6. Roadmap: Focus on Validation & Retail Pilots.
     -->
-    <!-- Visualization & Content Choices:
-         1. Comparison Matrix (Quadrant Chart): To clearly visualize the "Blue Ocean" strategy against Amazon (Digital/Generic) and Goodreads (Manual).
-         2. Market Growth (Bar/Line Chart): To quantify the "Resurgence" of physical books mentioned in Slide 5.
-         3. Tech Pipeline (Interactive HTML Flow): To simplify the complex AI stack into digestible steps (Input -> Context -> Engine -> Output).
-         4. Business Model (Cards): simple, clear value propositions.
-         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
-    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. CSS shapes used for logo. -->
 </head>
 <body class="antialiased scroll-smooth">
 
@@ -86,14 +96,23 @@
     <nav class="sticky top-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold text-emerald-700 font-serif">ShelfLife</span>
+                <!-- CSS Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="logo-container">
+                        <div class="logo-spine" style="height: 18px;"></div>
+                        <div class="logo-spine" style="height: 22px;"></div>
+                        <div class="logo-spine" style="height: 20px;"></div>
+                        <div class="logo-spine green" style="height: 24px;"></div> <!-- The Selected Book -->
+                        <div class="logo-spine" style="height: 19px;"></div>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800 font-serif tracking-tight">ShelfLife</span>
                 </div>
+                
                 <div class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#vision" class="nav-link active" onclick="setActiveNav(this)">Vision</a>
+                    <a href="#vision" class="nav-link active" onclick="setActiveNav(this)">The Problem</a>
+                    <a href="#market" class="nav-link" onclick="setActiveNav(this)">Market Data</a>
                     <a href="#demo" class="nav-link" onclick="setActiveNav(this)">How It Works</a>
-                    <a href="#market" class="nav-link" onclick="setActiveNav(this)">Market & Comp</a>
-                    <a href="#business" class="nav-link" onclick="setActiveNav(this)">Business Model</a>
+                    <a href="#roadmap" class="nav-link" onclick="setActiveNav(this)">Validation Plan</a>
                 </div>
             </div>
         </div>
@@ -102,25 +121,25 @@
     <!-- Hero Section -->
     <section id="vision" class="pt-20 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
         <div class="space-y-6">
-            <span class="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold tracking-wide uppercase">AI2Market Pitch Entry</span>
+            <span class="inline-block py-1 px-3 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold tracking-wide uppercase">AI2Market Submission</span>
             <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Bringing your <span class="text-emerald-600">digital taste</span> <br>to the <span class="text-emerald-600">physical shelf</span>.
+                Don't judge a book <br>by its <span class="text-gray-400 line-through decoration-emerald-500 decoration-4">cover</span> <span class="text-emerald-600">data</span>.
             </h1>
             <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 font-serif italic">
-                "ShelfLife: Your Augmented Reality Librarian."
+                "The signal-to-noise ratio in bookstores is broken. We fix it."
             </p>
             <p class="max-w-3xl mx-auto text-gray-500">
-                Bookstores are magical, but finding the right book is overwhelming. 4 million new books are published every year. We bridge the gap between your online reading history and the offline browsing experience.
+                Readers have years of history on Goodreads, but that data is invisible in a physical shop. ShelfLife bridges the <strong>Context Gap</strong>.
             </p>
             <div class="mt-8 flex justify-center gap-4">
                 <button onclick="document.getElementById('demo').scrollIntoView({behavior: 'smooth'})" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:text-lg shadow-lg transition-transform hover:scale-105">
-                    See How It Works
+                    See the Solution
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- The Problem vs Solution (Interactive) -->
+    <!-- The Problem (Data Silos) -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -128,31 +147,31 @@
                 <!-- The Problem Side -->
                 <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                        <span class="text-red-500 mr-2 text-3xl">✕</span> The Problem: Disconnect
+                        <span class="text-red-500 mr-2 text-3xl">✕</span> The Pain: "Browsing Fatigue"
                     </h2>
                     <p class="text-gray-600 mb-6">
-                        You have years of data on Goodreads and StoryGraph. But when you walk into a shop, that data is invisible.
+                        We are targeting the "Hybrid Reader" who tracks reading online but buys offline. Currently, they face a massive <strong>Data Silo</strong>.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-center p-3 bg-white rounded-lg shadow-sm">
-                            <span class="text-2xl mr-4">📚</span>
+                            <span class="text-2xl mr-4">📢</span>
                             <div>
-                                <h4 class="font-bold text-gray-800">The Noise</h4>
-                                <p class="text-sm text-gray-500">Walls of spines. Decision paralysis.</p>
+                                <h4 class="font-bold text-gray-800">4 Million Books/Year</h4>
+                                <p class="text-sm text-gray-500">That's the noise level. Finding one "good" book is a needle in a haystack.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm opacity-75">
+                            <span class="text-2xl mr-4">💸</span>
+                            <div>
+                                <h4 class="font-bold text-gray-800">High Stakes ($30)</h4>
+                                <p class="text-sm text-gray-500">Buying a hardcover is expensive. Picking a "dud" feels like wasting money.</p>
                             </div>
                         </div>
                         <div class="flex items-center p-3 bg-white rounded-lg shadow-sm opacity-50">
-                            <span class="text-2xl mr-4">🧱</span>
+                            <span class="text-2xl mr-4">🏚️</span>
                             <div>
-                                <h4 class="font-bold text-gray-800">The Wall</h4>
-                                <p class="text-sm text-gray-500">Your data doesn't travel with you.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center p-3 bg-white rounded-lg shadow-sm opacity-50">
-                            <span class="text-2xl mr-4">🤷</span>
-                            <div>
-                                <h4 class="font-bold text-gray-800">The Result</h4>
-                                <p class="text-sm text-gray-500">Leaving empty-handed.</p>
+                                <h4 class="font-bold text-gray-800">The "Thrift Store" Chaos</h4>
+                                <p class="text-sm text-gray-500">Without guidance, shelves at places like Value Village are just overwhelming visual noise.</p>
                             </div>
                         </div>
                     </div>
@@ -160,33 +179,33 @@
 
                 <!-- The Solution Side -->
                 <div class="bg-emerald-50 p-8 rounded-2xl border border-emerald-100 shadow-md relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 text-emerald-900 text-9xl font-serif">AI</div>
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-emerald-900 text-9xl font-serif">AR</div>
                     <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                        <span class="text-emerald-500 mr-2 text-3xl">✓</span> The Solution: ShelfLife
+                        <span class="text-emerald-500 mr-2 text-3xl">✓</span> The Solution: Context
                     </h2>
                     <p class="text-gray-700 mb-6">
-                        An AI-powered lens. Point your phone, and we highlight the perfect match based on <i>your</i> history.
+                        ShelfLife is the only solution that scans the <strong>whole shelf</strong> at once and cross-references it with <strong>your data</strong>.
                     </p>
                     <div class="grid grid-cols-1 gap-4">
-                        <div class="flex items-center p-4 bg-white rounded-lg border-l-4 border-emerald-500 shadow-sm transform transition hover:scale-105 cursor-default">
+                        <div class="flex items-center p-4 bg-white rounded-lg border-l-4 border-emerald-500 shadow-sm">
                             <div class="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold mr-4">1</div>
                             <div>
-                                <h4 class="font-bold text-gray-900">Snap</h4>
-                                <p class="text-sm text-gray-600">Scan the whole shelf instantly (OCR).</p>
+                                <h4 class="font-bold text-gray-900">Scan Reality</h4>
+                                <p class="text-sm text-gray-600">Multi-book OCR identifies 30+ spines instantly.</p>
                             </div>
                         </div>
-                        <div class="flex items-center p-4 bg-white rounded-lg border-l-4 border-emerald-500 shadow-sm transform transition hover:scale-105 cursor-default">
+                        <div class="flex items-center p-4 bg-white rounded-lg border-l-4 border-emerald-500 shadow-sm">
                             <div class="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold mr-4">2</div>
                             <div>
-                                <h4 class="font-bold text-gray-900">Sync</h4>
-                                <p class="text-sm text-gray-600">Connects to your Goodreads history.</p>
+                                <h4 class="font-bold text-gray-900">Inject Data</h4>
+                                <p class="text-sm text-gray-600">Syncs with your Goodreads "Read" & "DNF" lists.</p>
                             </div>
                         </div>
-                        <div class="flex items-center p-4 bg-white rounded-lg border-l-4 border-emerald-500 shadow-sm transform transition hover:scale-105 cursor-default">
+                        <div class="flex items-center p-4 bg-white rounded-lg border-l-4 border-emerald-500 shadow-sm">
                             <div class="h-10 w-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold mr-4">3</div>
                             <div>
-                                <h4 class="font-bold text-gray-900">Select</h4>
-                                <p class="text-sm text-gray-600">AR highlights your top 3 matches.</p>
+                                <h4 class="font-bold text-gray-900">Find the Signal</h4>
+                                <p class="text-sm text-gray-600">LLM analyzes "vibe" match, not just genre tags.</p>
                             </div>
                         </div>
                     </div>
@@ -196,180 +215,150 @@
         </div>
     </section>
 
-    <!-- Tech Stack Interactive Diagram -->
-    <section id="demo" class="py-16 bg-[#FDFBF7]">
+    <!-- Market Potential (TAM/SAM/SOM) -->
+    <section id="market" class="py-16 bg-[#FDFBF7]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10 text-center">
-                <h2 class="text-3xl font-bold text-gray-900 font-serif">Under the Hood</h2>
+                <h2 class="text-3xl font-bold text-gray-900 font-serif">The Market Opportunity</h2>
                 <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-                    This isn't just keyword matching. We use Generative AI to understand the <i>vibe</i> of a book. Click the steps below to see how the data flows.
+                    Contrary to the "print is dead" myth, the physical book market is stable and driven by digitally savvy users.
                 </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Market Funnel Visualization -->
+                <div class="space-y-4">
+                     <!-- TAM -->
+                    <div class="bg-gray-200 rounded-xl p-6 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="text-xl font-bold text-gray-800">TAM: $25 Billion</h3>
+                            <p class="text-sm text-gray-600">North American Book Market (78% is Print Format)</p>
+                        </div>
+                        <div class="absolute right-0 top-0 h-full w-1/3 bg-gray-300 transform skew-x-12 opacity-20"></div>
+                    </div>
+                    
+                    <!-- SAM -->
+                    <div class="bg-emerald-100 rounded-xl p-6 ml-8 border-l-4 border-emerald-300 relative">
+                         <h3 class="text-xl font-bold text-emerald-900">SAM: 125 Million Users</h3>
+                         <p class="text-sm text-emerald-800">Goodreads Registered Users (The "Trackers")</p>
+                    </div>
+
+                    <!-- SOM -->
+                    <div class="bg-emerald-600 rounded-xl p-6 ml-16 shadow-lg transform translate-x-2">
+                        <h3 class="text-xl font-bold text-white">SOM: 625k Users</h3>
+                        <p class="text-sm text-emerald-100">Capturing just 0.5% of active trackers in 18 months.</p>
+                    </div>
+                </div>
+
+                <!-- Competitor Chart -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Why Alternatives Fail</h3>
+                    <div class="chart-container bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+                        <canvas id="competitorChart"></canvas>
+                    </div>
+                    <div class="mt-6 text-sm text-gray-600 space-y-2">
+                        <p><strong>• Thrift/Manual:</strong> High friction, chaotic organization, zero data.</p>
+                        <p><strong>• Generic LLMs (ChatGPT):</strong> "Context Gap"—they don't know your history, so suggestions are generic.</p>
+                        <p><strong>• ShelfLife:</strong> The only option in the top-right quadrant (High Context + Physical World).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Flow (How it Works) -->
+    <section id="demo" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl font-bold text-gray-900 font-serif">How It Works</h2>
+                <p class="text-gray-500 mt-2">Click steps to view details.</p>
             </div>
 
             <div class="flex flex-col md:flex-row justify-center items-stretch gap-4 mb-8">
-                <button onclick="updateTechStep(0)" id="step-btn-0" class="step-node active flex-1 p-4 rounded-xl border border-gray-200 bg-white text-center shadow-sm hover:shadow-md">
+                <button onclick="updateTechStep(0)" id="step-btn-0" class="step-node active flex-1 p-4 rounded-xl border border-gray-200 bg-gray-50 text-center shadow-sm hover:shadow-md">
                     <div class="text-2xl mb-2">📷</div>
-                    <div class="font-bold">1. Input</div>
+                    <div class="font-bold">Input</div>
                     <div class="text-xs mt-1 text-gray-400">High-speed OCR</div>
                 </button>
-                <div class="hidden md:flex items-center text-gray-300">➜</div>
                 <button onclick="updateTechStep(1)" id="step-btn-1" class="step-node flex-1 p-4 rounded-xl border border-gray-200 bg-white text-center shadow-sm hover:shadow-md">
-                    <div class="text-2xl mb-2">👤</div>
-                    <div class="font-bold">2. Context</div>
-                    <div class="text-xs mt-1 text-gray-400">User Profile API</div>
+                    <div class="text-2xl mb-2">💾</div>
+                    <div class="font-bold">Context</div>
+                    <div class="text-xs mt-1 text-gray-400">Goodreads API</div>
                 </button>
-                <div class="hidden md:flex items-center text-gray-300">➜</div>
                 <button onclick="updateTechStep(2)" id="step-btn-2" class="step-node flex-1 p-4 rounded-xl border border-gray-200 bg-white text-center shadow-sm hover:shadow-md">
-                    <div class="text-2xl mb-2">🧠</div>
-                    <div class="font-bold">3. Engine</div>
-                    <div class="text-xs mt-1 text-gray-400">GenAI (LLM)</div>
-                </button>
-                <div class="hidden md:flex items-center text-gray-300">➜</div>
-                <button onclick="updateTechStep(3)" id="step-btn-3" class="step-node flex-1 p-4 rounded-xl border border-gray-200 bg-white text-center shadow-sm hover:shadow-md">
                     <div class="text-2xl mb-2">✨</div>
-                    <div class="font-bold">4. Output</div>
-                    <div class="text-xs mt-1 text-gray-400">AR Overlay</div>
+                    <div class="font-bold">Match</div>
+                    <div class="text-xs mt-1 text-gray-400">LLM Vibe Check</div>
                 </button>
             </div>
 
-            <!-- Dynamic Detail Box -->
-            <div id="tech-detail-box" class="bg-white rounded-2xl shadow-lg border border-emerald-100 p-8 text-center transition-all duration-300">
+            <div id="tech-detail-box" class="bg-emerald-50 rounded-2xl p-8 text-center transition-all duration-300 border border-emerald-100">
                 <h3 id="tech-title" class="text-2xl font-bold text-gray-900 mb-2">Input: Visual Scene Analysis</h3>
-                <p id="tech-desc" class="text-gray-600">
-                    We don't scan barcodes one by one. Our computer vision model analyzes the entire shelf at once, identifying text on spines (titles and authors) in milliseconds. This is our key differentiator: speed and friction reduction.
+                <p id="tech-desc" class="text-gray-700">
+                    We don't scan barcodes one by one (too slow). Our computer vision model analyzes the entire shelf at once, identifying text on spines (titles and authors) in milliseconds. This captures 20+ books in a single frame.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Market & Competition (Charts) -->
-    <section id="market" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 font-serif">Market Validation</h2>
-                <p class="mt-4 text-gray-600">
-                    Physical books aren't dying; they're evolving. We target the "Browser," the Avid Reader, and the Gift Giver.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                
-                <!-- Competitive Landscape Chart -->
-                <div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
-                        <span class="w-2 h-8 bg-emerald-500 rounded mr-2"></span> Competitive Landscape
-                    </h3>
-                    <p class="text-sm text-gray-500 mb-4">ShelfLife occupies the unique "Physical + Personalized" quadrant, enabling discovery where it happens.</p>
-                    <div class="chart-container bg-gray-50 rounded-xl border border-gray-100 p-4">
-                        <canvas id="competitorChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-sm text-gray-500 italic text-center">
-                        * Comparison based on personalization capability vs. physical world integration.
-                    </div>
-                </div>
-
-                <!-- Market Growth Chart -->
-                <div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
-                        <span class="w-2 h-8 bg-emerald-500 rounded mr-2"></span> The "BookTok" Effect
-                    </h3>
-                    <p class="text-sm text-gray-500 mb-4">Driven by Gen Z and Millennials, physical book sales have seen a resurgence, creating a need for better curation tools.</p>
-                    <div class="chart-container bg-gray-50 rounded-xl border border-gray-100 p-4">
-                        <canvas id="marketChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-sm text-gray-500 italic text-center">
-                        * Projected growth of physical book engagement driven by social media.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Model -->
-    <section id="business" class="py-16 bg-[#FDFBF7]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 font-serif">Business Model</h2>
-                <p class="mt-4 text-gray-600">Three clear pillars of revenue, scaling from consumer utility to enterprise intelligence.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-gray-300 card-hover">
-                    <div class="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center text-2xl mb-6">📱</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Freemium App</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Free basic scanning to drive user acquisition. Premium subscription unlocks unlimited "shelves" and deep-dive analytics on reading habits.
-                    </p>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wide">B2C Revenue</span>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-emerald-500 card-hover transform md:-translate-y-4">
-                    <div class="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center text-2xl mb-6">🔗</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Affiliate & Sales</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Commissions on books reserved at local stores or purchased online via the app if stock is unavailable locally.
-                    </p>
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide">Transactional</span>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-gray-300 card-hover">
-                    <div class="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center text-2xl mb-6">📊</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Retail Analytics</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        The Big Vision. We sell aggregate data to bookstores: "100 people scanned this shelf, 40 wanted Sci-Fi, but you only display Romance."
-                    </p>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wide">B2B Intelligence</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap & Ask -->
-    <section class="py-16 bg-gray-900 text-white">
+    <!-- Roadmap & Validation (The Pivot Plan) -->
+    <section id="roadmap" class="py-16 bg-gray-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl font-bold font-serif mb-6">The Ask</h2>
+                    <h2 class="text-3xl font-bold font-serif mb-6">Validation Goals</h2>
                     <p class="text-gray-300 mb-6 text-lg">
-                        We are seeking mentorship in Retail Partnerships and Computer Vision optimization to help us scale from prototype to pilot.
+                        We are entering AI2Market not just to build features, but to test the business model.
                     </p>
-                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                        <h4 class="font-bold text-emerald-400 mb-2">Current Status</h4>
-                        <ul class="space-y-2 text-sm text-gray-300">
-                            <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Prototype Functional</li>
-                            <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> OCR & Basic Matching Active</li>
-                            <li class="flex items-center"><span class="text-emerald-500 mr-2">✓</span> Goodreads Integration Live</li>
-                        </ul>
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 space-y-4">
+                        <div class="flex gap-4">
+                            <div class="h-8 w-8 rounded-full bg-emerald-900 flex items-center justify-center text-emerald-400 font-bold shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-white">Primary Goal: B2C Discovery</h4>
+                                <p class="text-sm text-gray-400">Validate if "Browsing Fatigue" is painful enough to drive app downloads.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="h-8 w-8 rounded-full bg-gray-700 flex items-center justify-center text-gray-400 font-bold shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-white">The Pivot: B2B Utility</h4>
+                                <p class="text-sm text-gray-400">If consumer demand is weak, we pivot the OCR tech to <strong>Resellers</strong> (price checking) or <strong>Bookstore Inventory Audits</strong>.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-3xl font-bold font-serif mb-6">Roadmap</h2>
+                    <h2 class="text-3xl font-bold font-serif mb-6">Timeline</h2>
                     <div class="relative border-l-2 border-emerald-500 ml-4 space-y-8 pl-8 py-2">
                         <div class="relative">
                             <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full bg-emerald-500 border-4 border-gray-900"></span>
-                            <h4 class="font-bold text-white">Month 1: Optimization</h4>
-                            <p class="text-sm text-gray-400">Refine OCR accuracy for spine text (vertical/horizontal).</p>
+                            <h4 class="font-bold text-white">Month 1: The "Kill Metric"</h4>
+                            <p class="text-sm text-gray-400">Release Beta. Metric to watch: <strong>Retention</strong>. If users scan once and leave, we pivot.</p>
                         </div>
                         <div class="relative">
                             <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full bg-gray-700 border-4 border-gray-900"></span>
-                            <h4 class="font-bold text-white">Month 2: Beta Launch</h4>
-                            <p class="text-sm text-gray-400">Release to 500 testflight users. Gather data on "scan success rate".</p>
+                            <h4 class="font-bold text-white">Month 2: Retail Pilot</h4>
+                            <p class="text-sm text-gray-400">Partner with 1 independent bookstore to test on-site engagement.</p>
                         </div>
                         <div class="relative">
                             <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full bg-gray-700 border-4 border-gray-900"></span>
-                            <h4 class="font-bold text-white">Month 3: Retail Pilot</h4>
-                            <p class="text-sm text-gray-400">Partner with 1 independent bookstore for on-site testing.</p>
+                            <h4 class="font-bold text-white">Month 3: Commercial Launch</h4>
+                            <p class="text-sm text-gray-400">Roll out premium tier or B2B data dashboard based on validation results.</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="mt-16 text-center pt-8 border-t border-gray-800">
+                <!-- CSS Logo Small -->
+                <div class="flex justify-center items-end gap-1 h-6 mb-4 opacity-50">
+                    <div class="w-1 bg-gray-400 h-3 rounded-[1px]"></div>
+                    <div class="w-1 bg-gray-400 h-5 rounded-[1px]"></div>
+                    <div class="w-1 bg-emerald-500 h-6 rounded-[1px] shadow-[0_0_5px_#10B981]"></div>
+                    <div class="w-1 bg-gray-400 h-4 rounded-[1px]"></div>
+                </div>
                 <p class="text-emerald-500 font-bold tracking-widest uppercase text-sm mb-2">ShelfLife</p>
-                <p class="text-gray-400 italic">Bringing the intelligence of the web to the romance of the bookstore.</p>
+                <p class="text-gray-400 italic text-sm">"The right book, at the right time."</p>
             </div>
         </div>
     </section>
@@ -380,19 +369,15 @@
         const techSteps = [
             {
                 title: "Input: Visual Scene Analysis",
-                desc: "We don't scan barcodes one by one. Our computer vision model analyzes the entire shelf at once, identifying text on spines (titles and authors) in milliseconds. This captures 20+ books in a single frame."
+                desc: "We don't scan barcodes one by one. Our computer vision model analyzes the entire shelf at once, identifying text on spines (titles and authors) in milliseconds. This differentiates us from Goodreads' single-scan friction."
             },
             {
                 title: "Context: The User Profile",
-                desc: "The app pulls your reading history from Goodreads or StoryGraph. It knows you rated 'The Martian' 5 stars but DNF'd (Did Not Finish) 'Twilight'. It builds a 'Taste Profile' JSON object."
+                desc: "The app pulls your reading history. It knows you rated 'The Martian' 5 stars but DNF'd 'Twilight'. This is the 'Context Gap' that generic LLMs like ChatGPT lack."
             },
             {
-                title: "Engine: Generative AI",
-                desc: "We feed the detected titles and your Taste Profile into an LLM. The prompt asks: 'Given the user loves witty sci-fi, which of these 20 shelf books is the best match and why?' It goes beyond genre tags to understand writing style."
-            },
-            {
-                title: "Output: Augmented Reality",
-                desc: "The app draws a bounding box around the winning book on your camera screen. A 'Match Score' bubble appears with a one-sentence pitch: '98% Match: Similar humor to your favorite, Project Hail Mary.'"
+                title: "Match: The 'Vibe' Check",
+                desc: "We feed the shelf inventory and your profile into an LLM. It doesn't just match genre tags; it matches writing style and mood. 'You liked Dark Matter for the pacing? Try this thriller on the bottom shelf.'"
             }
         ];
 
@@ -401,8 +386,12 @@
             document.querySelectorAll('.step-node').forEach((btn, idx) => {
                 if (idx === index) {
                     btn.classList.add('active');
+                    btn.classList.remove('bg-white');
+                    btn.classList.add('bg-emerald-50'); // highlight bg
                 } else {
                     btn.classList.remove('active');
+                    btn.classList.add('bg-white');
+                    btn.classList.remove('bg-emerald-50');
                 }
             });
 
@@ -425,18 +414,19 @@
         // --- Chart.js Implementations ---
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 1. Competitor Landscape (Scatter Plot / Quadrant)
+            // Competitor Landscape (Scatter Plot / Quadrant)
             const ctxComp = document.getElementById('competitorChart').getContext('2d');
             new Chart(ctxComp, {
                 type: 'scatter',
                 data: {
                     datasets: [
                         {
-                            label: 'Competitors',
+                            label: 'Existing Solutions',
                             data: [
-                                { x: -0.8, y: 0.9, name: 'Amazon' }, // Digital + Generic(ish) logic
-                                { x: 0.7, y: 0.9, name: 'Goodreads' }, // Digital + Personalized
-                                { x: -0.5, y: -0.5, name: 'Physical Bookstore' }, // Physical + Generic (Browsing)
+                                { x: -0.8, y: 0.5, name: 'Amazon (Algorithm, No Physical)' }, 
+                                { x: 0.9, y: 0.8, name: 'Goodreads (Data, but High Friction)' }, 
+                                { x: -0.9, y: -0.9, name: 'Thrift Store / Manual Browse' }, // The specific pain point
+                                { x: -0.2, y: 0.2, name: 'ChatGPT (Generic, No Context)' } // The generic LLM
                             ],
                             backgroundColor: '#9CA3AF', // Gray
                             pointRadius: 8
@@ -444,7 +434,7 @@
                         {
                             label: 'ShelfLife',
                             data: [
-                                { x: 0.8, y: -0.8, name: 'ShelfLife' } // Physical + Personalized
+                                { x: 0.85, y: -0.8, name: 'ShelfLife' } // Physical + Personalized
                             ],
                             backgroundColor: '#059669', // Emerald
                             pointRadius: 12,
@@ -464,9 +454,6 @@
                             }
                         },
                         legend: { display: true, position: 'bottom' },
-                        annotation: {
-                            // Note: Annotation plugin not loaded to keep simple, using axis labels instead
-                        }
                     },
                     scales: {
                         x: {
@@ -482,49 +469,6 @@
                             max: 1,
                             title: { display: true, text: '← Physical vs Digital →' },
                             grid: { color: '#E5E7EB' }
-                        }
-                    }
-                }
-            });
-
-            // 2. Market Growth (Bar/Line Chart)
-            const ctxMarket = document.getElementById('marketChart').getContext('2d');
-            new Chart(ctxMarket, {
-                type: 'bar',
-                data: {
-                    labels: ['2020', '2021', '2022', '2023', '2024 (Proj)'],
-                    datasets: [{
-                        label: 'Physical Book Sales (Units in Millions)',
-                        data: [750, 825, 788, 767, 800], // Mock data representing the "Resurgence" trend
-                        backgroundColor: (ctx) => {
-                            const index = ctx.dataIndex;
-                            return index === 4 ? '#059669' : '#D1FAE5'; // Highlight projection
-                        },
-                        borderColor: '#059669',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return context.parsed.y + ' Million Units';
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            min: 600,
-                            grid: { display: false }
-                        },
-                        x: {
-                            grid: { display: false }
                         }
                     }
                 }
